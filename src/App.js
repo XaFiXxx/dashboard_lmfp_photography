@@ -6,6 +6,7 @@ import Dashboard from "./pages/acceuil/acceuil";
 import Users from "./pages/users/index";
 import DashboardHeader from "./pages/template/_header";
 import EditUser from "./pages/users/edit";
+import Posts from "./pages/posts/index";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/dashboard/users" element={<Users />} />
         <Route path="/dashboard/users/edit/:id" element={<EditUser />} />
+        <Route path="/dashboard/posts" element={<Posts />} />
       </Routes>
     </Router>
   );
