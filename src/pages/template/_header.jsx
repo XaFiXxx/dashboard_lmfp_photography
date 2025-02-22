@@ -9,7 +9,7 @@ const DashboardHeader = () => {
 
   const handleLogout = async () => {
     await logout();
-    navigate("/"); // Redirection vers la page de login après déconnexion
+    navigate("/");
   };
 
   return (
