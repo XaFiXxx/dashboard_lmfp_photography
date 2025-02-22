@@ -21,8 +21,7 @@ function Login() {
         `${process.env.REACT_APP_API_URL}/api/dash/login`,
         { email, password }
       );
-      console.log('Connexion réussie :', response.data);
-
+      
       // Appel de la méthode login du AuthContext pour stocker l'utilisateur et le token
       login(response.data.user, response.data.auth_token);
 
