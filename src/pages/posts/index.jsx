@@ -13,7 +13,7 @@ const Posts = () => {
   const fetchPosts = () => {
     const token = Cookies.get('auth_token'); // Récupérer le token depuis les cookies
     axios
-      .get(`${process.env.REACT_APP_API_URL}/api/posts`, {
+      .get(`${process.env.REACT_APP_API_URL}/api/dash/posts`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -70,18 +70,24 @@ const Posts = () => {
   return (
     <div className="min-h-screen bg-gray-100">
       <main className="container mx-auto p-4">
-        <h2 className="text-2xl font-semibold mb-4">Liste des posts</h2>
-        <button
+      <div className="flex justify-between items-center mb-4">
+        <h2 className="text-2xl font-bold">Gestion des posts</h2>
+        <button 
           onClick={handleCreate}
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
         >
-          Créer un post
+          Créer un utilisateur
         </button>
+      </div>
         <div className="overflow-x-auto mt-4">
           <table className="w-full bg-white border border-gray-200">
             <thead>
               <tr className="bg-gray-100">
                 <th className="text-left px-4 py-2 border">Titre</th>
+                <th className="text-left px-4 py-2 border">image post</th>
+                <th className="text-left px-4 py-2 border">Description</th>
+                <th className="text-left px-4 py-2 border">commentaires</th>
+                <th className="text-left px-4 py-2 border">images</th>
                 <th className="text-left px-4 py-2 border">Actions</th>
               </tr>
             </thead>
@@ -90,10 +96,14 @@ const Posts = () => {
                 posts.map((post) => (
                   <tr key={post.id} className="text-center">
                     <td className="px-4 py-2 border">{post.title}</td>
+                    <td className="px-4 py-2 border"><img className='w-28' src={`${process.env.REACT_APP_LARAVEL_URL}${post.image}`} alt="" /></td>
+                    <td className="px-4 py-2 border">{post.description}</td>
+                    <td className="px-4 py-2 border">{post.comments.length}</td>
+                    <td className="px-4 py-2 border">{post.galery.length}</td>
                     <td className="px-4 py-2 border space-x-2">
                       <button
                         onClick={() => handleEdit(post.id)}
-                        className="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 rounded"
+                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded"
                       >
                         Modifier
                       </button>
