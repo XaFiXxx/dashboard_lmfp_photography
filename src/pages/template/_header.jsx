@@ -28,6 +28,9 @@ const DashboardHeader = () => {
           <Link to="/dashboard/galerie" className="hover:underline">
             Galerie
           </Link>
+          <Link to="/dashboard/categories" className="hover:underline">
+            Catégories
+          </Link>
           <button
             onClick={handleLogout}
             className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"

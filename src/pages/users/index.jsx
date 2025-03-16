@@ -41,7 +41,7 @@ const Users = () => {
   const handleDelete = async (id) => {
     const token = Cookies.get('auth_token');
     try {
-      await axios.delete(`${process.env.REACT_APP_API_URL}/api/dash/users/${id}`, {
+      await axios.delete(`${process.env.REACT_APP_API_URL}/api/dash/user/${id}/delete`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

@@ -115,15 +115,12 @@ const EditUser = () => {
           />
         </div>
         <div className="mb-4">
-          <label htmlFor="role" className="block mb-2">Rôle</label>
-          <input
-            type="text"
-            id="role"
-            name="role"
-            value={userData.role}
-            onChange={handleChange}
-            className="border p-2 w-full"
-          />
+          <select name="role" id="role" value={userData.role} onChange={handleChange} className="border p-2 w-full">
+              <option value="visiteur">Visiteur</option>
+              <option value="mannequin">Mannequin</option>
+              <option value="photographe">Photographe</option>
+              <option value="photographe">Oraganisateur d'évennement</option>
+          </select>
         </div>
         <div className="mb-4">
           <label htmlFor="isAdmin" className="inline-flex items-center">
